@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>學員編輯</h2>
+		<form action="/updateStudent">
+			<input type="hidden" name="ID" value="<%= Student.ID%>">
+			<p>學生編號: <input type="text" name="StudentNumber" value="<%= Student.StudentNumber%>"></p>
+			<p>學生姓名: <input type="text" name="StudentName" value="<%= Student.StudentName%>"></p>
+			<p>出生日期: <input type="text" name="BornDate" value="<%= Student.BornDate%>"></p>
+			<p>住址: <input type="text" name="Address" value="<%= Student.Address%>"></p>
+			<p>email: <input type="text" name="Email" value="<%= Student.Email%>"></p>
+			<p>性別: <input type="text" name="Sex" value="<%= Student.Sex%>"></p>
+			<p>訊息: <input type="text" name="Message" value="<%= Student.Message%>"></p>
+			
+			<p><input type="submit" name="修改" value="修改"></p>
+		</form>
+	</body>
+</html>

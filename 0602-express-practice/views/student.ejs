@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+		<h2>學生列表</h2>
+		<p>
+			姓名<input type="text" v-model="username">
+			<button @click="search(username)">搜索</button>
+		</p>
+		<table border="1">
+			<tr>
+			<th>序號</th>	
+			<th>學生姓名</th>
+				<th>出生年月</th>
+				<th>住址</th>
+				<th>操作</th>
+			</tr>
+			<%
+			for(let i=0;i<res.length;i++){
+			%>
+			<tr>
+			<td><%= res[i].StudentNumber %></td>
+			<td><%= res[i].StudentName %></td>
+			<td><%= moment(res[i].BornDate).format("YYYY-MM-DD") %></td>
+			<td><%= res[i].Address %></td>
+			<td>
+				<a :href="'/edit?ID='+<%= res[i].ID %>">編輯</a>
+				<a :href="'/delete?StudentNumber='+<%= res[i].StudentNumber %>">刪除</a>
+			</td>	
+				
+			</tr>
+			<% } %>
+		</table>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script>
+		var vm = new Vue({
+		  el: '#app',
+		  data: {
+			  username:"",
+		  },
+		  methods:{
+			  search(username){
+				  window.location.href = '/getStudents?StudentName='+username
+				  },
+				// delete(id){
+				// 	axios
+				// 	      .get('/delete?id='+id)
+				// 	      .then(response => alert("刪除成功") )
+				// 	      .catch(function (error) { 
+				// 			  alert('刪除失敗');
+				// 	      });
+				// }
+			  
+			  
+		  }
+		})
+		</script>
+	</body>
+</html>

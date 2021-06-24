@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1> 我買了一個<%= stuff %>, 花了<%= money %>元。 </h1>
+		
+		<select name="" id="">
+			<%
+			for (var i=1949;i<=2017;i++){
+			%>
+			<option value=""> <%= i %> </option>
+			<%
+			}
+			%>
+		</select>
+		
+		<%
+		for(var i=0; i<idol.length ;i++){
+		%>
+		
+		<p> <%= idol[i].name %>   <%= idol[i].age  %> 歲</p> 
+		
+		<%
+		}
+		%>
+	</body>
+</html>
